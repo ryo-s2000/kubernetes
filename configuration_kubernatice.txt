@@ -1,0 +1,883 @@
+Last login: Wed Dec 26 14:49:56 on ttys002
+csuzukiryounoMacBook-puro:affiliate suzukiryo$ cd ../exportame/
+suzukiryounoMacBook-puro:exportame suzukiryo$ ls
+Dockerfile	Gemfile		README.rdoc	adwords		bin		build.sh	config.ru	docker		lib		misc		public		test		ydn
+Dockerfile.cron	Gemfile.lock	Rakefile	app		bower.json	config		db		formura		log		one_shotrs	sample.rb	vendor
+suzukiryounoMacBook-puro:exportame suzukiryo$ mine .
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+
+
+^C
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+Unable to connect to the server: error executing access token command "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/gcloud config config-helper --format=json": err=exit status 1 output= stderr=ERROR: (gcloud.config.config-helper) There was a problem refreshing your current auth tokens: Unable to find the server at www.googleapis.com
+Please run:
+
+  $ gcloud auth login
+
+to obtain new credentials, or if you have already logged in with a
+different account:
+
+  $ gcloud config set account ACCOUNT
+
+to select an already authenticated account to use.
+
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+No resources found.
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS    RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Running   0          23h
+exportame-69b498f95f-s28gj                              1/1       Running   0          23h
+exportame-cron-64947f75f7-c7pcd                         1/1       Running   0          23h
+galactic-78dc6884bc-2jqkl                               1/1       Running   0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running   7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running   0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running   0          152d
+proxy-2439910893-pxntl                                  1/1       Running   0          257d
+proxy-2439910893-wpffc                                  1/1       Running   0          257d
+redis-3339713811-mzx2h                                  1/1       Running   0          195d
+secret-editor-608525669-tj4tc                           1/1       Running   6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running   6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl exec -it exportame-69b498f95f-s28gj bash
+root@exportame-69b498f95f-s28gj:/app# ls
+adwords  app  bin  bower.json  build.sh  config  config.ru  db  docker  Dockerfile  Dockerfile.cron  formura  Gemfile  Gemfile.lock  lib  log  misc  one_shotrs  Procfile  public  Rakefile  README.rdoc  sample.rb  test  tmp  vendor  ydn
+root@exportame-69b498f95f-s28gj:/app# cd a
+bash: cd: a: No such file or directory
+root@exportame-69b498f95f-s28gj:/app# cd app
+root@exportame-69b498f95f-s28gj:/app/app# ls
+assets  controllers  helpers  jobs  mailers  models  views
+root@exportame-69b498f95f-s28gj:/app/app# cd ../
+root@exportame-69b498f95f-s28gj:/app# ls
+adwords  app  bin  bower.json  build.sh  config  config.ru  db  docker  Dockerfile  Dockerfile.cron  formura  Gemfile  Gemfile.lock  lib  log  misc  one_shotrs  Procfile  public  Rakefile  README.rdoc  sample.rb  test  tmp  vendor  ydn
+root@exportame-69b498f95f-s28gj:/app# exit
+exit
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl delete pods exportame-cron-64947f75f7-c7pcd
+pod "exportame-cron-64947f75f7-c7pcd" deleted
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS              RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Running             0          23h
+exportame-69b498f95f-s28gj                              1/1       Running             0          23h
+exportame-cron-64947f75f7-995w8                         0/1       ContainerCreating   0          2s
+galactic-78dc6884bc-2jqkl                               1/1       Running             0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running             7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running             0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running             0          152d
+proxy-2439910893-pxntl                                  1/1       Running             0          257d
+proxy-2439910893-wpffc                                  1/1       Running             0          257d
+redis-3339713811-mzx2h                                  1/1       Running             0          195d
+secret-editor-608525669-tj4tc                           1/1       Running             6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running             6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS              RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Running             0          23h
+exportame-69b498f95f-s28gj                              1/1       Running             0          23h
+exportame-cron-64947f75f7-995w8                         0/1       ContainerCreating   0          8s
+galactic-78dc6884bc-2jqkl                               1/1       Running             0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running             7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running             0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running             0          152d
+proxy-2439910893-pxntl                                  1/1       Running             0          257d
+proxy-2439910893-wpffc                                  1/1       Running             0          257d
+redis-3339713811-mzx2h                                  1/1       Running             0          195d
+secret-editor-608525669-tj4tc                           1/1       Running             6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running             6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS    RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Running   0          23h
+exportame-69b498f95f-s28gj                              1/1       Running   0          23h
+exportame-cron-64947f75f7-995w8                         1/1       Running   0          9s
+galactic-78dc6884bc-2jqkl                               1/1       Running   0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running   7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running   0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running   0          152d
+proxy-2439910893-pxntl                                  1/1       Running   0          257d
+proxy-2439910893-wpffc                                  1/1       Running   0          257d
+redis-3339713811-mzx2h                                  1/1       Running   0          195d
+secret-editor-608525669-tj4tc                           1/1       Running   6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running   6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl delete pods exportame-69b498f95f-s28gj 
+pod "exportame-69b498f95f-s28gj" deleted
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS              RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Running             0          23h
+exportame-69b498f95f-s28gj                              1/1       Terminating         0          23h
+exportame-69b498f95f-zql9r                              0/1       ContainerCreating   0          2s
+exportame-cron-64947f75f7-995w8                         1/1       Running             0          30s
+galactic-78dc6884bc-2jqkl                               1/1       Running             0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running             7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running             0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running             0          152d
+proxy-2439910893-pxntl                                  1/1       Running             0          257d
+proxy-2439910893-wpffc                                  1/1       Running             0          257d
+redis-3339713811-mzx2h                                  1/1       Running             0          195d
+secret-editor-608525669-tj4tc                           1/1       Running             6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running             6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS        RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Running       0          23h
+exportame-69b498f95f-s28gj                              1/1       Terminating   0          23h
+exportame-69b498f95f-zql9r                              1/1       Running       0          18s
+exportame-cron-64947f75f7-995w8                         1/1       Running       0          46s
+galactic-78dc6884bc-2jqkl                               1/1       Running       0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running       7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running       0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running       0          152d
+proxy-2439910893-pxntl                                  1/1       Running       0          257d
+proxy-2439910893-wpffc                                  1/1       Running       0          257d
+redis-3339713811-mzx2h                                  1/1       Running       0          195d
+secret-editor-608525669-tj4tc                           1/1       Running       6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running       6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS        RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Running       0          23h
+exportame-69b498f95f-s28gj                              1/1       Terminating   0          23h
+exportame-69b498f95f-zql9r                              1/1       Running       0          22s
+exportame-cron-64947f75f7-995w8                         1/1       Running       0          50s
+galactic-78dc6884bc-2jqkl                               1/1       Running       0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running       7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running       0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running       0          152d
+proxy-2439910893-pxntl                                  1/1       Running       0          257d
+proxy-2439910893-wpffc                                  1/1       Running       0          257d
+redis-3339713811-mzx2h                                  1/1       Running       0          195d
+secret-editor-608525669-tj4tc                           1/1       Running       6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running       6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ k delete pods exportame-69b498f95f-4kkvl
+-bash: k: command not found
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl delete pods exportame-69b498f95f-4kkvl
+pod "exportame-69b498f95f-4kkvl" deleted
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS        RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Terminating   0          23h
+exportame-69b498f95f-s28gj                              0/1       Terminating   0          23h
+exportame-69b498f95f-t2hff                              0/1       Running       0          3s
+exportame-69b498f95f-zql9r                              1/1       Running       0          35s
+exportame-cron-64947f75f7-995w8                         1/1       Running       0          1m
+galactic-78dc6884bc-2jqkl                               1/1       Running       0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running       7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running       0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running       0          152d
+proxy-2439910893-pxntl                                  1/1       Running       0          257d
+proxy-2439910893-wpffc                                  1/1       Running       0          257d
+redis-3339713811-mzx2h                                  1/1       Running       0          195d
+secret-editor-608525669-tj4tc                           1/1       Running       6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running       6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS        RESTARTS   AGE
+exportame-69b498f95f-4kkvl                              1/1       Terminating   0          23h
+exportame-69b498f95f-s28gj                              0/1       Terminating   0          23h
+exportame-69b498f95f-t2hff                              0/1       Running       0          7s
+exportame-69b498f95f-zql9r                              1/1       Running       0          39s
+exportame-cron-64947f75f7-995w8                         1/1       Running       0          1m
+galactic-78dc6884bc-2jqkl                               1/1       Running       0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running       7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running       0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running       0          152d
+proxy-2439910893-pxntl                                  1/1       Running       0          257d
+proxy-2439910893-wpffc                                  1/1       Running       0          257d
+redis-3339713811-mzx2h                                  1/1       Running       0          195d
+secret-editor-608525669-tj4tc                           1/1       Running       6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running       6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get deploy
+NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+exportame                               2         2         2            2           1y
+exportame-cron                          1         1         1            1           1y
+galactic                                4         4         4            4           2y
+proxy                                   2         2         2            2           2y
+redis                                   1         1         1            1           2y
+secret-editor                           1         1         1            1           2y
+truculent-zebu-aws-cluster-autoscaler   1         1         1            1           1y
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl describe deploy exportame
+Name:                   exportame
+Namespace:              default
+CreationTimestamp:      Thu, 13 Apr 2017 17:55:44 +0900
+Labels:                 chart=exportame-0.1.0
+Annotations:            deployment.kubernetes.io/revision=175
+Selector:               app=exportame
+Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  1 max unavailable, 0 max surge
+Pod Template:
+  Labels:  app=exportame
+  Containers:
+   exportame:
+    Image:      403163817656.dkr.ecr.ap-northeast-1.amazonaws.com/exportame:1ebd3e6bccffd92b32eb54d214cf91a7b449ee48
+    Port:       80/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     1
+      memory:  1800Mi
+    Requests:
+      cpu:      800m
+      memory:   1800Mi
+    Liveness:   http-get http://:80/status delay=10s timeout=600s period=20s #success=1 #failure=3
+    Readiness:  http-get http://:80/status delay=15s timeout=600s period=20s #success=1 #failure=3
+    Environment:
+      CLOUDFLARE_DEFAULT_ZONE_ID:      9f7763e36f7958980a8224f1c4a1fd56
+      CLOUDFLARE_EMAIL:                mg@fullout.jp
+      CLOUDFLARE_KEY:                  <set to the key 'cloudflare-key' in secret 'common'>  Optional: false
+      DB_HOST_MASTER:                  db-master.fullout.jp
+      DB_HOST_SLAVE:                   db-master.fullout.jp
+      DB_PASSWORD:                     <set to the key 'exportame-db-password' in secret 'common'>  Optional: false
+      DB_USERNAME:                     fullout
+      FACEBOOKAD_BUSINESS_ACCOUNT_ID:  1660282787541043
+      FACEBOOKAD_TOKEN:                <set to the key 'facebookad-token' in secret 'common'>  Optional: false
+      LOGICAD_ACCESS_KEY_ID:           akiajksccjkgokgv3itq
+      LOGICAD_AGENCY:                  1244
+      LOGICAD_REGION:                  ap-northeast-1
+      LOGICAD_SECRET_ACCESS_KEY:       <set to the key 'logicad-secret-access-key' in secret 'common'>     Optional: false
+      MAILER_ACCOUNT_PASSWORD:         <set to the key 'tech-mailer-account-password' in secret 'common'>  Optional: false
+      MAILER_ACCOUNT_USER:             tech@fullout.jp
+      MISOCA_APPLICATION_ID:           cc62988d9db54e31ee16235d1177872569ce95490d66a8a1f89836e21b089e7b
+      MISOCA_CALLBACK_URL:             https://dsp.fullout.jp/oauth/misoca_callback
+      MISOCA_SECRET:                   <set to the key 'misoca-secret' in secret 'common'>      Optional: false
+      NEND_API_KEY:                    <set to the key 'nend-api-key' in secret 'common'>       Optional: false
+      SCALEOUT_PASSWORD:               <set to the key 'scaleout-password' in secret 'common'>  Optional: false
+      SCALEOUT_USER:                   Kevin@fullout.jp
+      SECRET_KEY_BASE:                 <set to the key 'exportame-secret-key-base' in secret 'common'>  Optional: false
+      SEND_GRID_EMAIL_DOMAIN:          sendgrid.fullout.jp
+      YDN_ID:                          hub3040lobed
+      YDN_PASSWORD:                    <set to the key 'ydn-password' in secret 'common'>  Optional: false
+      LINE_ID:                         mtb@fullout.jp
+      LINE_PASSWORD:                   <set to the key 'line-password' in secret 'common'>  Optional: false
+      ZUCKS_API_KEY:                   <set to the key 'zucks-api-key' in secret 'common'>  Optional: false
+      AKANE_ID:                        qdHU6aNKxys7DXRS
+      AKANE_PASSWORD:                  <set to the key 'akane-password' in secret 'common'>  Optional: false
+      FIVEANY_ID:                      株式会社フルアウト
+      FIVEANY_PASSWORD:                <set to the key 'fiveany-password' in secret 'common'>  Optional: false
+      GUNOSY_ID:                       y-isaka@fullout.jp
+      GUNOSY_PASSWORD:                 <set to the key 'gunosy-password' in secret 'common'>  Optional: false
+      ADROUTE1_ID:                     371
+      ADROUTE1_PASSWORD:               <set to the key 'adroute1-password' in secret 'common'>  Optional: false
+      ADROUTE2_ID:                     372
+      ADROUTE2_PASSWORD:               <set to the key 'adroute2-password' in secret 'common'>  Optional: false
+      IMOBILE_ID:                      y-isaka@fullout.jp
+      IMOBILE_PASSWORD:                <set to the key 'imobile-password' in secret 'common'>  Optional: false
+      EVORY_ID1:                       fullout001
+      EVORY_ID2:                       fullout0002
+      EVORY_PASSWORD:                  <set to the key 'evory-password' in secret 'common'>  Optional: false
+      OCTPASS_ID:                      y-isaka@fullout.jp
+      OCTPASS_PASSWORD:                <set to the key 'octpass-password' in secret 'common'>  Optional: false
+      TABOOLA_ID:                      m-yoshida@fullout.jp
+      TABOOLA_PASSWORD:                <set to the key 'taboola-password' in secret 'common'>  Optional: false
+      SMARTNEWS_ID:                    y-isaka@fullout.jp
+      SMARTNEWS_PASSWORD:              <set to the key 'smartnews-password' in secret 'common'>  Optional: false
+      LOGLY_ID:                        fullout@logly.co.jp
+      LOGLY_PASSWORD:                  <set to the key 'logly-password' in secret 'common'>  Optional: false
+      POPIN1_ID:                       fullout
+      POPIN1_PASSWORD:                 <set to the key 'popin1-password' in secret 'common'>  Optional: false
+      POPIN2_ID:                       fullout-tw
+      POPIN2_PASSWORD:                 <set to the key 'popin2-password' in secret 'common'>  Optional: false
+      YDN_TWITTER_ID:                  glam5573zaffar
+      YDN_TWITTER_PASSWORD:            <set to the key 'ydn-twitter-password' in secret 'common'>  Optional: false
+      AJA_ID:                          y-kurihara@fullout.jp
+      AJA_PASSWORD:                    <set to the key 'aja-password' in secret 'common'>  Optional: false
+      TWITTER_CONSUMER_KEY:            ESyozawdEHeXxp18B9HY563qQ
+      TWITTER_CONSUMER_SECRET:         <set to the key 'twitter-consumer-secret' in secret 'common'>  Optional: false
+      TWITTER_ACCESS_TOKEN:            421068911-EweK3pCm5bQjRGYdNeFZFUSyOf2H2WbEfAJagT3I
+      TWITTER_ACCESS_TOKEN_SECRET:     <set to the key 'twitter-access-token-secret' in secret 'common'>  Optional: false
+      TWITTER_ADS_ACCOUNT:             18ce54j9sh9
+      POETS_ID:                        fullout@poets.fout
+      POETS_PASSWORD:                  <set to the key 'poets-password' in secret 'common'>  Optional: false
+      OUTBRAIN_ID:                     fullout@fullout.jp
+      OUTBRAIN_PASSWORD:               <set to the key 'outbrain-password' in secret 'common'>  Optional: false
+      GENIEE_ID:                       株式会社フルアウト2
+      GENIEE_PASSWORD:                 <set to the key 'geniee-password' in secret 'common'>  Optional: false
+      UZOU_ID:                         fullout@fullout.jp
+      UZOU_PASSWORD:                   <set to the key 'uzou-password' in secret 'common'>  Optional: false
+      XLIFT_ID:                        fullout@x-lift.jp
+      XLIFT_PASSWORD:                  <set to the key 'xlift-password' in secret 'common'>  Optional: false
+      EVORY2_ID:                       fullout@evorydsp.com
+      EVORY2_PASSWORD:                 <set to the key 'evory2-password' in secret 'common'>  Optional: false
+      RED_ID:                          fullout
+      RED_PASSWORD:                    <set to the key 'red-password' in secret 'common'>  Optional: false
+      DOCOMO1_ID:                      docomo-ad-network+fullout@gmo-am.jp
+      DOCOMO1_PASSWORD:                <set to the key 'docomo1-password' in secret 'common'>  Optional: false
+      DOCOMO2_ID:                      m-miyake@fullout.jp
+      DOCOMO2_PASSWORD:                <set to the key 'docomo2-password' in secret 'common'>  Optional: false
+      PISTA_ID:                        y-kurihara@fullout.jp
+      PISTA_PASSWORD:                  <set to the key 'pista-password' in secret 'common'>  Optional: false
+      FULLOUT_S3_ACCESS_KEY_ID:        AKIAJ2KUZLG3JBG7KTLA
+      FULLOUT_S3_SECRET_ACCESS_KEY:    <set to the key 'exportame-iam-secret-key' in secret 'common'>  Optional: false
+      CHATWORK_ROOM_ID:                89966210
+      CHATWORK_API_TOKEN:              <set to the key 'chatwork-api-token' in secret 'common'>  Optional: false
+      REDIS_SERVER:                    redis
+    Mounts:
+      /app/adwords from adwords (ro)
+  Volumes:
+   adwords:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  adwords
+    Optional:    false
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   exportame-69b498f95f (2/2 replicas created)
+Events:          <none>
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get svc
+NAME                                    TYPE           CLUSTER-IP      EXTERNAL-IP        PORT(S)        AGE
+exportame                               LoadBalancer   100.69.31.190   afab9bd912026...   80:32753/TCP   1y
+galactic                                LoadBalancer   100.71.97.252   a390a5da5bd28...   80:30591/TCP   2y
+kubernetes                              ClusterIP      100.64.0.1      <none>             443/TCP        2y
+proxy                                   LoadBalancer   100.67.209.57   aed0f9452bc45...   80:31285/TCP   2y
+redis                                   ClusterIP      100.67.25.229   <none>             6379/TCP       2y
+secret-editor                           LoadBalancer   100.70.1.35     a4a823212bc5f...   80:30365/TCP   2y
+truculent-zebu-aws-cluster-autoscaler   ClusterIP      100.67.28.186   <none>             8085/TCP       1y
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl describe svc exportame
+Name:                     exportame
+Namespace:                default
+Labels:                   chart=exportame-0.1.0
+                          dns=route53
+Annotations:              domainName=exportame.k8s.fullout.jp
+Selector:                 app=exportame
+Type:                     LoadBalancer
+IP:                       100.69.31.190
+LoadBalancer Ingress:     afab9bd91202611e7ba380ab2a8f28e6-492418167.ap-northeast-1.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  32753/TCP
+Endpoints:                100.96.24.28:80,100.96.27.81:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get svc exportame -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    domainName: exportame.k8s.fullout.jp
+  creationTimestamp: 2017-04-13T08:55:44Z
+  labels:
+    chart: exportame-0.1.0
+    dns: route53
+  name: exportame
+  namespace: default
+  resourceVersion: "15506443"
+  selfLink: /api/v1/namespaces/default/services/exportame
+  uid: fab9bd91-2026-11e7-ba38-0ab2a8f28e6f
+spec:
+  clusterIP: 100.69.31.190
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32753
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: exportame
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: afab9bd91202611e7ba380ab2a8f28e6-492418167.ap-northeast-1.elb.amazonaws.com
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get deploy exportame -o yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "175"
+  creationTimestamp: 2017-04-13T08:55:44Z
+  generation: 175
+  labels:
+    chart: exportame-0.1.0
+  name: exportame
+  namespace: default
+  resourceVersion: "129662917"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/exportame
+  uid: faba8374-2026-11e7-ba38-0ab2a8f28e6f
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: exportame
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: exportame
+    spec:
+      containers:
+      - env:
+        - name: CLOUDFLARE_DEFAULT_ZONE_ID
+          value: 9f7763e36f7958980a8224f1c4a1fd56
+        - name: CLOUDFLARE_EMAIL
+          value: mg@fullout.jp
+        - name: CLOUDFLARE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: cloudflare-key
+              name: common
+        - name: DB_HOST_MASTER
+          value: db-master.fullout.jp
+        - name: DB_HOST_SLAVE
+          value: db-master.fullout.jp
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: exportame-db-password
+              name: common
+        - name: DB_USERNAME
+          value: fullout
+        - name: FACEBOOKAD_BUSINESS_ACCOUNT_ID
+          value: "1660282787541043"
+        - name: FACEBOOKAD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: facebookad-token
+              name: common
+        - name: LOGICAD_ACCESS_KEY_ID
+          value: akiajksccjkgokgv3itq
+        - name: LOGICAD_AGENCY
+          value: "1244"
+        - name: LOGICAD_REGION
+          value: ap-northeast-1
+        - name: LOGICAD_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              key: logicad-secret-access-key
+              name: common
+        - name: MAILER_ACCOUNT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: tech-mailer-account-password
+              name: common
+        - name: MAILER_ACCOUNT_USER
+          value: tech@fullout.jp
+        - name: MISOCA_APPLICATION_ID
+          value: cc62988d9db54e31ee16235d1177872569ce95490d66a8a1f89836e21b089e7b
+        - name: MISOCA_CALLBACK_URL
+          value: https://dsp.fullout.jp/oauth/misoca_callback
+        - name: MISOCA_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: misoca-secret
+              name: common
+        - name: NEND_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: nend-api-key
+              name: common
+        - name: SCALEOUT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: scaleout-password
+              name: common
+        - name: SCALEOUT_USER
+          value: Kevin@fullout.jp
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: exportame-secret-key-base
+              name: common
+        - name: SEND_GRID_EMAIL_DOMAIN
+          value: sendgrid.fullout.jp
+        - name: YDN_ID
+          value: hub3040lobed
+        - name: YDN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ydn-password
+              name: common
+        - name: LINE_ID
+          value: mtb@fullout.jp
+        - name: LINE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: line-password
+              name: common
+        - name: ZUCKS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: zucks-api-key
+              name: common
+        - name: AKANE_ID
+          value: qdHU6aNKxys7DXRS
+        - name: AKANE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: akane-password
+              name: common
+        - name: FIVEANY_ID
+          value: 株式会社フルアウト
+        - name: FIVEANY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: fiveany-password
+              name: common
+        - name: GUNOSY_ID
+          value: y-isaka@fullout.jp
+        - name: GUNOSY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: gunosy-password
+              name: common
+        - name: ADROUTE1_ID
+          value: "371"
+        - name: ADROUTE1_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: adroute1-password
+              name: common
+        - name: ADROUTE2_ID
+          value: "372"
+        - name: ADROUTE2_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: adroute2-password
+              name: common
+        - name: IMOBILE_ID
+          value: y-isaka@fullout.jp
+        - name: IMOBILE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: imobile-password
+              name: common
+        - name: EVORY_ID1
+          value: fullout001
+        - name: EVORY_ID2
+          value: fullout0002
+        - name: EVORY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: evory-password
+              name: common
+        - name: OCTPASS_ID
+          value: y-isaka@fullout.jp
+        - name: OCTPASS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: octpass-password
+              name: common
+        - name: TABOOLA_ID
+          value: m-yoshida@fullout.jp
+        - name: TABOOLA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: taboola-password
+              name: common
+        - name: SMARTNEWS_ID
+          value: y-isaka@fullout.jp
+        - name: SMARTNEWS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: smartnews-password
+              name: common
+        - name: LOGLY_ID
+          value: fullout@logly.co.jp
+        - name: LOGLY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: logly-password
+              name: common
+        - name: POPIN1_ID
+          value: fullout
+        - name: POPIN1_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: popin1-password
+              name: common
+        - name: POPIN2_ID
+          value: fullout-tw
+        - name: POPIN2_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: popin2-password
+              name: common
+        - name: YDN_TWITTER_ID
+          value: glam5573zaffar
+        - name: YDN_TWITTER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ydn-twitter-password
+              name: common
+        - name: AJA_ID
+          value: y-kurihara@fullout.jp
+        - name: AJA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: aja-password
+              name: common
+        - name: TWITTER_CONSUMER_KEY
+          value: ESyozawdEHeXxp18B9HY563qQ
+        - name: TWITTER_CONSUMER_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: twitter-consumer-secret
+              name: common
+        - name: TWITTER_ACCESS_TOKEN
+          value: 421068911-EweK3pCm5bQjRGYdNeFZFUSyOf2H2WbEfAJagT3I
+        - name: TWITTER_ACCESS_TOKEN_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: twitter-access-token-secret
+              name: common
+        - name: TWITTER_ADS_ACCOUNT
+          value: 18ce54j9sh9
+        - name: POETS_ID
+          value: fullout@poets.fout
+        - name: POETS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: poets-password
+              name: common
+        - name: OUTBRAIN_ID
+          value: fullout@fullout.jp
+        - name: OUTBRAIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: outbrain-password
+              name: common
+        - name: GENIEE_ID
+          value: 株式会社フルアウト2
+        - name: GENIEE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: geniee-password
+              name: common
+        - name: UZOU_ID
+          value: fullout@fullout.jp
+        - name: UZOU_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: uzou-password
+              name: common
+        - name: XLIFT_ID
+          value: fullout@x-lift.jp
+        - name: XLIFT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: xlift-password
+              name: common
+        - name: EVORY2_ID
+          value: fullout@evorydsp.com
+        - name: EVORY2_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: evory2-password
+              name: common
+        - name: RED_ID
+          value: fullout
+        - name: RED_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: red-password
+              name: common
+        - name: DOCOMO1_ID
+          value: docomo-ad-network+fullout@gmo-am.jp
+        - name: DOCOMO1_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: docomo1-password
+              name: common
+        - name: DOCOMO2_ID
+          value: m-miyake@fullout.jp
+        - name: DOCOMO2_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: docomo2-password
+              name: common
+        - name: PISTA_ID
+          value: y-kurihara@fullout.jp
+        - name: PISTA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: pista-password
+              name: common
+        - name: FULLOUT_S3_ACCESS_KEY_ID
+          value: AKIAJ2KUZLG3JBG7KTLA
+        - name: FULLOUT_S3_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              key: exportame-iam-secret-key
+              name: common
+        - name: CHATWORK_ROOM_ID
+          value: "89966210"
+        - name: CHATWORK_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: chatwork-api-token
+              name: common
+        - name: REDIS_SERVER
+          value: redis
+        image: 403163817656.dkr.ecr.ap-northeast-1.amazonaws.com/exportame:1ebd3e6bccffd92b32eb54d214cf91a7b449ee48
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 20
+          successThreshold: 1
+          timeoutSeconds: 600
+        name: exportame
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          successThreshold: 1
+          timeoutSeconds: 600
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1800Mi
+          requests:
+            cpu: 800m
+            memory: 1800Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /app/adwords
+          name: adwords
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: adwords
+        secret:
+          defaultMode: 420
+          secretName: adwords
+status:
+  availableReplicas: 2
+  conditions:
+  - lastTransitionTime: 2018-06-14T10:23:49Z
+    lastUpdateTime: 2018-06-14T10:23:49Z
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 175
+  readyReplicas: 2
+  replicas: 2
+  updatedReplicas: 2
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS    RESTARTS   AGE
+exportame-69b498f95f-t2hff                              1/1       Running   0          11m
+exportame-69b498f95f-zql9r                              1/1       Running   0          11m
+exportame-cron-64947f75f7-995w8                         1/1       Running   0          12m
+galactic-78dc6884bc-2jqkl                               1/1       Running   0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running   7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running   0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running   0          152d
+proxy-2439910893-pxntl                                  1/1       Running   0          257d
+proxy-2439910893-wpffc                                  1/1       Running   0          257d
+redis-3339713811-mzx2h                                  1/1       Running   0          195d
+secret-editor-608525669-tj4tc                           1/1       Running   6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running   6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ k edit deploy exportame
+-bash: k: command not found
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl edit deploy exportame
+error: there was a problem with the editor "vi"
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS    RESTARTS   AGE
+exportame-69b498f95f-t2hff                              1/1       Running   0          11m
+exportame-69b498f95f-zql9r                              1/1       Running   0          12m
+exportame-cron-64947f75f7-995w8                         1/1       Running   0          12m
+galactic-78dc6884bc-2jqkl                               1/1       Running   0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running   7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running   0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running   0          152d
+proxy-2439910893-pxntl                                  1/1       Running   0          257d
+proxy-2439910893-wpffc                                  1/1       Running   0          257d
+redis-3339713811-mzx2h                                  1/1       Running   0          195d
+secret-editor-608525669-tj4tc                           1/1       Running   6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running   6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS    RESTARTS   AGE
+exportame-69b498f95f-t2hff                              1/1       Running   0          11m
+exportame-69b498f95f-zql9r                              1/1       Running   0          12m
+exportame-cron-64947f75f7-995w8                         1/1       Running   0          12m
+galactic-78dc6884bc-2jqkl                               1/1       Running   0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running   7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running   0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running   0          152d
+proxy-2439910893-pxntl                                  1/1       Running   0          257d
+proxy-2439910893-wpffc                                  1/1       Running   0          257d
+redis-3339713811-mzx2h                                  1/1       Running   0          195d
+secret-editor-608525669-tj4tc                           1/1       Running   6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running   6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl edit deploy exportame
+deployment.extensions "exportame" edited
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get pods
+NAME                                                    READY     STATUS              RESTARTS   AGE
+exportame-69b498f95f-rfqng                              0/1       Running             0          2s
+exportame-69b498f95f-s2rcp                              0/1       ContainerCreating   0          2s
+exportame-69b498f95f-t2hff                              1/1       Running             0          12m
+exportame-69b498f95f-zql9r                              1/1       Running             0          12m
+exportame-cron-64947f75f7-995w8                         1/1       Running             0          13m
+galactic-78dc6884bc-2jqkl                               1/1       Running             0          76d
+galactic-78dc6884bc-6cjgt                               1/1       Running             7          152d
+galactic-78dc6884bc-d6mf9                               1/1       Running             0          152d
+galactic-78dc6884bc-p6ccl                               1/1       Running             0          152d
+proxy-2439910893-pxntl                                  1/1       Running             0          257d
+proxy-2439910893-wpffc                                  1/1       Running             0          257d
+redis-3339713811-mzx2h                                  1/1       Running             0          195d
+secret-editor-608525669-tj4tc                           1/1       Running             6          159d
+truculent-zebu-aws-cluster-autoscaler-683013430-2qt2r   1/1       Running             6          195d
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubect get deploy
+-bash: kubect: command not found
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get deploy
+NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+exportame                               4         4         4            2           1y
+exportame-cron                          1         1         1            1           1y
+galactic                                4         4         4            4           2y
+proxy                                   2         2         2            2           2y
+redis                                   1         1         1            1           2y
+secret-editor                           1         1         1            1           2y
+truculent-zebu-aws-cluster-autoscaler   1         1         1            1           1y
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get deploy
+NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+exportame                               4         4         4            3           1y
+exportame-cron                          1         1         1            1           1y
+galactic                                4         4         4            4           2y
+proxy                                   2         2         2            2           2y
+redis                                   1         1         1            1           2y
+secret-editor                           1         1         1            1           2y
+truculent-zebu-aws-cluster-autoscaler   1         1         1            1           1y
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get deploy
+NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+exportame                               4         4         4            3           1y
+exportame-cron                          1         1         1            1           1y
+galactic                                4         4         4            4           2y
+proxy                                   2         2         2            2           2y
+redis                                   1         1         1            1           2y
+secret-editor                           1         1         1            1           2y
+truculent-zebu-aws-cluster-autoscaler   1         1         1            1           1y
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl edit deploy exportame
+deployment.extensions "exportame" edited
+suzukiryounoMacBook-puro:exportame suzukiryo$ kubectl get deploy
+NAME                                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+exportame                               2         2         2            2           1y
+exportame-cron                          1         1         1            1           1y
+galactic                                4         4         4            4           2y
+proxy                                   2         2         2            2           2y
+redis                                   1         1         1            1           2y
+secret-editor                           1         1         1            1           2y
+truculent-zebu-aws-cluster-autoscaler   1         1         1            1           1y
+suzukiryounoMacBook-puro:exportame suzukiryo$ 
